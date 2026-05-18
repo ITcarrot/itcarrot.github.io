@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Not Found</title>
+    <style>
+      #roundpipe-help {
+        display: none;
+      }
+
+      .roundpipe-path #roundpipe-help {
+        display: inline;
+      }
+    </style>
+    <script>
+      (function () {
+        var path = window.location.pathname || '';
+        var isRoundPipePath = path === '/RoundPipe' || path.startsWith('/RoundPipe/');
+        if (isRoundPipePath) {
+          document.documentElement.classList.add('roundpipe-path');
+          var search = window.location.search || '';
+          var hash = window.location.hash || '';
+          var target = 'https://thustorage.github.io' + path + search + hash;
+          window.location.replace(target);
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    Page not found.
+    <span id="roundpipe-help">
+      If you were looking for RoundPipe, visit
+      <a href="https://thustorage.github.io/RoundPipe/">https://thustorage.github.io/RoundPipe/</a>.
+    </span>
+  </body>
+</html>
