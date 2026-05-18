@@ -21,9 +21,7 @@
           var search = window.location.search || '';
           var hash = window.location.hash || '';
           var target = 'https://thustorage.github.io' + path + search + hash;
-          setTimeout(function () {
-            window.location.replace(target);
-          }, 0);
+          window.location.replace(target);
         }
       })();
     </script>
