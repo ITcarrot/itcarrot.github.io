@@ -6,17 +6,25 @@
     <script>
       (function () {
         var path = window.location.pathname || '';
-        if (path === '/RoundPipe' || path.startsWith('/RoundPipe/')) {
+        var isRoundPipePath = path === '/RoundPipe' || path.startsWith('/RoundPipe/');
+        if (isRoundPipePath) {
           var search = window.location.search || '';
           var hash = window.location.hash || '';
           var target = 'https://thustorage.github.io' + path + search + hash;
+          var help = document.getElementById('roundpipe-help');
+          if (help) {
+            help.style.display = 'inline';
+          }
           window.location.replace(target);
         }
       })();
     </script>
   </head>
   <body>
-    Page not found. If you were looking for RoundPipe, visit
-    <a href="https://thustorage.github.io/RoundPipe/">https://thustorage.github.io/RoundPipe/</a>.
+    Page not found.
+    <span id="roundpipe-help" style="display: none">
+      If you were looking for RoundPipe, visit
+      <a href="https://thustorage.github.io/RoundPipe/">https://thustorage.github.io/RoundPipe/</a>.
+    </span>
   </body>
 </html>
