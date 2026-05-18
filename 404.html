@@ -3,26 +3,34 @@
   <head>
     <meta charset="utf-8" />
     <title>Not Found</title>
+    <style>
+      #roundpipe-help {
+        display: none;
+      }
+
+      .roundpipe-path #roundpipe-help {
+        display: inline;
+      }
+    </style>
     <script>
       (function () {
         var path = window.location.pathname || '';
         var isRoundPipePath = path === '/RoundPipe' || path.startsWith('/RoundPipe/');
         if (isRoundPipePath) {
+          document.documentElement.classList.add('roundpipe-path');
           var search = window.location.search || '';
           var hash = window.location.hash || '';
           var target = 'https://thustorage.github.io' + path + search + hash;
-          var help = document.getElementById('roundpipe-help');
-          if (help) {
-            help.style.display = 'inline';
-          }
-          window.location.replace(target);
+          setTimeout(function () {
+            window.location.replace(target);
+          }, 0);
         }
       })();
     </script>
   </head>
   <body>
     Page not found.
-    <span id="roundpipe-help" style="display: none">
+    <span id="roundpipe-help">
       If you were looking for RoundPipe, visit
       <a href="https://thustorage.github.io/RoundPipe/">https://thustorage.github.io/RoundPipe/</a>.
     </span>
